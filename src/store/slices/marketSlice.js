@@ -13,7 +13,7 @@ const marketSlice = createSlice({
   },
   extraReducers: {
     [getMarketInfo.fulfilled]: (state, { payload })=> {
-      state.message = payload;
+      state.message = payload.message;
     },
   }
 });

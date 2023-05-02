@@ -9,7 +9,6 @@ const VideoContainer = () => {
   const { message } = useSelector(state => state.video);
 
   const gettingVideo = () => {
-    console.log('gettingVideo');
     dispatch(getVideoInfo());
   };
 
