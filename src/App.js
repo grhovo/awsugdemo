@@ -1,18 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import routeItems from './data/routesItems';
-import { Auth } from 'aws-amplify';
+// import { Auth } from 'aws-amplify';
 
 function App() {
 
-  Auth.currentSession().then(res=>{
-    let accessToken = res.getAccessToken();
-    let jwt = accessToken.getJwtToken();
-        
-    //You can print them to see the full objects
-    console.log(`myAccessToken: ${JSON.stringify(accessToken)}`);
-    console.log(`myJwt: ${jwt}`);
-  });
+  // Auth.currentSession();
 
   return (
     <>
