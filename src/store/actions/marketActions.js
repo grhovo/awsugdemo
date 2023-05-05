@@ -1,7 +1,7 @@
 import { API_LINK } from '../../data/API';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { config } from '../../helpers';
+import { config } from '../../constants';
 
 export const getMarketInfo = createAsyncThunk(
   'market/getMarketInfo',
