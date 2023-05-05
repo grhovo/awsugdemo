@@ -1,30 +1,22 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import routeItems from './data/routesItems';
-import { Amplify } from 'aws-amplify';
-import awsExports from './aws-exports';
-import { Authenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
-// import { Auth } from 'aws-amplify';
-
-Amplify.configure({
-  Auth: {
-    region: awsExports.REGION,
-    userPoolId: awsExports.USER_POOL_ID,
-    userPoolWebClientId: awsExports.USER_POOL_APP_CLIENT_ID
-  }
-});
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import routeItems from './data/routesItems';
+import { Auth } from 'aws-amplify';
 
 function App() {
+
+  Auth.currentSession().then(res=>{
+    let accessToken = res.getAccessToken()
+    let jwt = accessToken.getJwtToken()
+        
+    //You can print them to see the full objects
+    console.log(`myAccessToken: ${JSON.stringify(accessToken)}`)
+    console.log(`myJwt: ${jwt}`)
+  })
+
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
-        <div>
-          <p>Welcome {user.username}</p>
-          <button onClick={signOut}>Sign out</button>
-        </div>
-      )}
-      {/* <Router>
+    <>
+      <Router>
         <Routes>
           {
             routeItems.map((route) => {
@@ -48,8 +40,8 @@ function App() {
             })
           }
         </Routes>
-      </Router> */}
-    </Authenticator>
+      </Router>
+    </>
   );
 }
 
