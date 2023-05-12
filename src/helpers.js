@@ -1,8 +1,11 @@
-import awsExports from './aws-exports';
+import { Auth } from 'aws-amplify';
+  
+export const gettingAccessToken = async() => {
+  const token = (await Auth?.currentSession?.())?.getIdToken?.()?.getJwtToken?.();
 
-export const gettingAccessToken = () => {
-  const key = `CognitoIdentityServiceProvider.${awsExports.USER_POOL_APP_CLIENT_ID}`;
-  const userId = localStorage.getItem(`${key}.LastAuthUser`) || '';
-
-  return localStorage.getItem(`${key}.${userId}.idToken`) || '';
+  return  {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  }; 
 };
