@@ -2,7 +2,8 @@ import React from 'react';
 import Video from '../pages/Video';
 import Text from '../pages/Text';
 import Market from '../pages/Market';
-import {  HomeIcon, RestaurantsIcon, UserIcon } from './sidebarIcons';
+import Image from '../pages/Image';
+import {  HomeIcon, RestaurantsIcon, UserIcon, LearnIcon } from './sidebarIcons';
 
 const routeItems = [
   {
@@ -28,6 +29,14 @@ const routeItems = [
     isMenuItem: true,
     icon: <RestaurantsIcon />,
     component: <Text />
+  },
+  {
+    key: 'image',
+    title: 'Image',
+    path: '/image',
+    isMenuItem: true,
+    icon: <LearnIcon />,
+    component: <Image />
   },
 ];
 

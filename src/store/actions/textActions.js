@@ -21,6 +21,7 @@ export const addTextInfo = createAsyncThunk(
   'text/addTextInfo',
   async (body, thunkAPI) => {
     try {
+      const config = await gettingAccessToken();
       const resp = await axios.post(`${API_LINK}/text`, body, config);
       
       return resp.data;
