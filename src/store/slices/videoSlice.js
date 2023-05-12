@@ -13,7 +13,6 @@ const videoSlice = createSlice({
   },
   extraReducers: {
     [getVideoInfo.fulfilled]: (state, { payload })=> {
-      console.log('lll', payload);
       state.message = payload.message;
     },
   }
