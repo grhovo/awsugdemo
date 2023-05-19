@@ -1,12 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import routeItems from './data/routesItems';
-// import { Auth } from 'aws-amplify';
 
 function App() {
-
-  // Auth.currentSession();
-
   return (
     <>
       <Router>
